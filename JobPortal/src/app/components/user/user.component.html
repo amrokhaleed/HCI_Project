@@ -2,7 +2,7 @@
     <div class="header bg-[#3376F7]">
         <h2 class="text-white pl-4 p-4">User Profile</h2>
     </div>
-    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex justify-between items-start">
+    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex justify-between items-start flex-wrap">
         <div class="user-details">
             <div class="info flex gap-4">
                 <img src="../../../assets/images.jpeg" alt="">
@@ -74,6 +74,36 @@
                     </div>
                     <a href="#" class="text-[#3376F7]">Verify</a>
                 </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex justify-between items-start flex-wrap">
+        <div class="portfolio w-[837px]">
+            <h3 class="w-[100%] p-2 text-white bg-[#3376f7]">Portfolio</h3>
+            <div class="upload flex flex-col justify-center items-center p-[70px]">
+                <!-- Input field for uploading photos -->
+                <input type="file" (change)="onFilesSelected($event)" accept="image/*" multiple>
+
+                <!-- Display uploaded images -->
+                <div class="uploaded-images flex items-start justify-start">
+                    <img *ngFor="let item of portfolioItems" [src]="item" alt="Portfolio Image" class="w-20 h-20 object-cover m-1">
+                </div>
+
+                <!-- Message if no photos uploaded -->
+                <div *ngIf="!portfolioItems.length" class="text-gray-500">No portfolio items have been added yet</div>
+            </div>
+        </div>
+        <div class="skills w-[300px]">
+            <div class="w-[100%] p-2 text-white bg-[#3376f7] flex justify-between">
+                <h3 class="">Skills</h3>
+                <button><i class="fa fa-pencil"></i></button>
+            </div>
+
+            <ul class="flex flex-col gap-3 p-[12px]">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JS</li>
+                <li>REACT</li>
             </ul>
         </div>
     </div>

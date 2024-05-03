@@ -8,6 +8,8 @@ import { FaConfig } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { UserComponent } from './components/user/user.component';
     UserComponent
   ],
   imports: [
+    CommonModule,
+    FormsModule,
     FontAwesomeModule,
     BrowserModule,
     AppRoutingModule
