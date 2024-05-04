@@ -1,0 +1,85 @@
+<div>
+    <div class="header bg-[#3376F7]">
+        <h2 class="text-white pl-4 p-4">Company Profile</h2>
+    </div>
+    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex justify-between items-start flex-wrap">
+        <div class="company-details">
+            <div class="info flex gap-4">
+                <div class="logo-box" (click)="openFilePicker()">
+                    <input #fileInput type="file" accept="image/*" hidden (change)="onFileSelected($event)">
+                    <img *ngIf="!logoUrl" src="../../../assets/plus-solid.svg" alt="Add Logo">
+                    <img *ngIf="logoUrl" [src]="logoUrl" alt="Company Logo">
+                </div>
+                <div class="text">
+                    <p id="com-name" class="mb-4">CHECK24</p>
+                    <ul id="reviewStars" class="flex justify-start items-center mb-8">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <span class="ml-2">5.0</span>
+                    </ul>
+                    <div class="btns flex flex-row items-center justify-start gap-4">
+                        <button disabled class="text-white bg-[#3376F7] pt-1 pb-1 pl-4 pr-4 ">Follow</button>
+                        <button disabled class="text-white bg-[#3376F7] pt-1 pb-1 pl-4 pr-4">Add Review</button>
+                    </div>
+                </div>
+            </div>
+            <div class="user-metrics mt-4 flex items-start gap-[70px]">
+                <div class="metrics">
+                    <div id="rec" class="mb-4">
+                        <i class="fa fa-thumbs-up mr-1"></i> 0 Recommendations
+                    </div>
+                    <div id="salary" class="mb-4">
+                        <div class="flex items-center gap-3">
+                            <img class="w-3" src="../../../assets/portfolio.png" alt="">
+                            <span>0 Jobs</span>
+                        </div>
+                    </div>
+                    <div id="country" class="mb-4">
+                        <i class="fa fa-star"></i> 0 Reviews
+                    </div>
+                    <div id="done" class="mb-4">
+                        <i class="fa fa-image"></i> 0 Photos
+                    </div>
+                </div>
+                <div class="description">
+                    <textarea name="desc" rows="6" cols="65" placeholder="Describe Your Company and its history in Details"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="locations w-[300px]">
+            <div class="w-[100%] p-2 text-white bg-[#3376f7] flex justify-between">
+                <h3 class="">Locations</h3>
+                <button><img class="w-[20px] h-[20px]" *ngIf="!logoUrl" src="../../../assets/plus-solid.svg" alt="Add Logo"></button>
+            </div>
+            <ul class="p-3">
+                <li *ngFor="let location of locations; let i = index" class="flex items-center justify-between gap-7 mb-3">
+                    <div>
+                        <i class="fa fa-map-pin mr-3"></i>
+                        <input *ngIf="isEditing[i]" type="text" [(ngModel)]="editedLocations[i]" [value]="locations[i]" />
+                        <span *ngIf="!isEditing[i]">{{ location }}</span>
+                    </div>
+                    <a href="#" class="text-[#3376F7]" (click)="toggleEdit(i)">{{ isEditing[i] ? 'Cancel' : 'Edit' }}</a>
+                    <button *ngIf="isEditing[i]" class="hidden" (click)="saveLocation(i)">Save</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex justify-between items-start flex-wrap">
+        <div class="skills w-[300px]">
+            <div class="w-[100%] p-2 text-white bg-[#3376f7] flex justify-between">
+                <h3 class="">Skills</h3>
+                <button><i class="fa fa-pencil"></i></button>
+            </div>
+
+            <ul class="flex flex-col gap-3 p-[12px]">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JS</li>
+                <li>REACT</li>
+            </ul>
+        </div>
+    </div>
+</div>
