@@ -1,0 +1,12 @@
+.form_control {
+  margin-top: 10rem;
+}
+section {
+    border-radius: 2em;
+    width: 600px ;
+    margin:auto;
+   background-color: #c3d1ed;
+}
+input{
+    background-color: #c3d1ed;
+}
