@@ -2,7 +2,7 @@
     <div class="header bg-[#3376F7]">
         <h2 class="text-white pl-4 p-4">Company Profile</h2>
     </div>
-    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex justify-between items-start flex-wrap">
+    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex flex-col lg:flex-row justify-between items-start">
         <div class="company-details">
             <div class="info flex gap-4">
                 <div class="logo-box" (click)="openFilePicker()">
@@ -67,19 +67,62 @@
             </ul>
         </div>
     </div>
-    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex justify-between items-start flex-wrap">
-        <div class="skills w-[300px]">
-            <div class="w-[100%] p-2 text-white bg-[#3376f7] flex justify-between">
-                <h3 class="">Skills</h3>
-                <button><i class="fa fa-pencil"></i></button>
+    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex justify-start items-start flex-wrap gap-[100px]">
+        <div class="skills">
+            <div class="w-[100%] p-2 text-white bg-[#3376f7]">
+                <h3 class="">About The Company</h3>
             </div>
-
-            <ul class="flex flex-col gap-3 p-[12px]">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JS</li>
-                <li>REACT</li>
-            </ul>
+            <div class="about flex flex-row items-center justify-around p-4 gap-8">
+                <div class="flex flex-col">
+                    <div id="ceo">
+                        <h3 class="mb-2">CEO</h3>
+                        <h2 class="font-bold mb-5">CEO A.Abu Hashima</h2>
+                        <span>Since 2023</span>
+                    </div>
+                    <div id="revenue">
+                        <h3 class="mb-8">REVENUE</h3>
+                        <span class="font-bold">more than<br> $10B (USD)</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div id="founded">
+                        <h3 class="mb-2">FOUNDED</h3>
+                        <h2 class="font-bold mb-5">In Germany</h2>
+                        <span>1997</span>
+                    </div>
+                    <div id="industry">
+                        <h3 class="mb-8">INDUSTRY</h3>
+                        <span class="font-bold">Electronic<br> Engineering</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div id="size">
+                        <h3 class="mb-7">Company Size</h3>
+                        <span class="font-bold">more than<br> $10B (USD)</span>
+                    </div>
+                    <div id="head">
+                        <h3 class="mb-14">HeadQuarters</h3>
+                        <span class="font-bold">Zurich</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reviews flex-1">
+            <div class="w-[100%] p-2 text-white bg-[#3376f7]">
+                <h3>Reviews</h3>
+            </div>
+            <div class="reviews-content flex flex-col items-start p-4">
+                <div class="review mb-5">
+                    <div id="username">Amr.kh &commat;amrkhaleed11</div>
+                    <div class="mb-2" id="rating"><span>Rating : </span>4.2 <span><i class="fa fa-star"></i></span></div>
+                    <div id="comment">Great Company and I advice any one To work with them And thanks for your services.</div>
+                </div>
+                <div class="review">
+                    <div id="username">Amr.kh &commat;amrkhaleed11</div>
+                    <div class="mb-2" id="rating"><span>Rating : </span>4.2 <span><i class="fa fa-star"></i></span></div>
+                    <div id="comment">Great Company and I advice any one To work with them And thanks for your services.</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

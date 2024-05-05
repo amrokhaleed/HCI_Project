@@ -58,3 +58,23 @@
     opacity: 0;
     cursor: pointer;
 }
+
+.about #ceo,
+.about #revenue,
+.about #founded,
+.about #industry,
+.about #head,
+.about #size {
+    border: 1px solid grey;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.reviews {
+    border: 1px solid #5BBCFF;
+}
+
+.reviews #comment {
+    border: 1px solid black;
+    padding: 6px;
+}
