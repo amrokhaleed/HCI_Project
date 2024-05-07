@@ -1,4 +1,4 @@
-<div class="Navbar flex items-center justify-between pl-7 pr-7">
+<div *ngIf="!isLoginPage()" class="Navbar flex items-center justify-between pl-7 pr-7">
     <img src="../assets/pngtree-find-job-logo-template-designs-vector-illustration-image_341400.jpg" alt="logo">
     <ul class="flex justify-evenly gap-3">
         <li>Find Work</li>
@@ -6,8 +6,12 @@
         <li>Manage</li>
         <li>Groups</li>
     </ul>
-    <button class="bg-cyan-500 p-2 text-white"><a routerLink="/user-profile">Profile</a></button>
-    <button class="bg-cyan-500 p-2 text-white"><a routerLink="/company-profile">Company</a></button>
+    <div class="btns">
+        <button class="bg-cyan-500 p-2 text-white mr-2"><a routerLink="/user-profile">Profile</a></button>
+        <button class="bg-cyan-500 p-2 text-white mr-2"><a routerLink="/company-profile">Company</a></button>
+        <button class="bg-cyan-500 p-2 text-white"><a routerLink="/login">Login/Register</a></button>
+    </div>
+
 </div>
 
 <router-outlet></router-outlet>
