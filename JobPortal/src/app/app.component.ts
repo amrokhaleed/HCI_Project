@@ -9,7 +9,8 @@ export class AppComponent {
   title = 'JobPortal';
   constructor(private router: Router) { }
 
-  isLoginPage(): boolean {
-    return this.router.url === '/login'; // Adjust this based on your actual login page URL
+  isLoginPageOrRegisterPage(): boolean {
+    const currentUrl = this.router.url;
+    return currentUrl === '/login' || currentUrl === '/user-registeration' || currentUrl === '/company-registeration';
   }
 }

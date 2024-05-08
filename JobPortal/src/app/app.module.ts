@@ -12,13 +12,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CompanyComponent } from './components/company/company.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { UserRegisterationComponent } from './components/user-registeration/user-registeration.component';
+import { CompanyRegisterationComponent } from './components/company-registeration/company-registeration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     CompanyComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    UserRegisterationComponent,
+    CompanyRegisterationComponent
   ],
   imports: [
     CommonModule,

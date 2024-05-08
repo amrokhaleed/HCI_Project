@@ -1,0 +1,25 @@
+.box {
+    border: 2px solid black
+}
+
+input {
+    background-color: #D9D9D9;
+    padding: 10px;
+    position: relative;
+}
+
+input:focus {
+    outline: none;
+}
+
+h2 {
+    font-size: 35px;
+    color: #3276FA;
+    font-weight: bold;
+}
+
+input[type=submit] {
+    background-color: #3276FA;
+    color: white;
+    margin-bottom: 10px;
+}
