@@ -1,0 +1,19 @@
+.pos_card_holder{
+    margin-top:5rem;
+
+}
+.pos_filter {
+    margin: auto auto  auto 28rem;
+}
+h5{
+    margin-left: 1rem; 
+    /* padding-right:2rem ; */
+}
+label {
+   color:#aeb9d1;
+}
+optgroup
+ {
+     font-size:10px;
+     font-weight: bold;
+     }

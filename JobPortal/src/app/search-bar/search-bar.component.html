@@ -1,11 +1,20 @@
-<section>
-    <form  class="d-flex flex-row h-50 align-items-center justify-content-center form_control " >
-        <div>
-            <input class="form-control border-0 m-2   " type="text" placeholder="Search for a job" />
-        </div>
-        <div>
-            <input class="form-control border-0"  name="l" enterkeyhint="search" type="text"  placeholder="location" maxlength="512"  value="">
-        </div>
-        <button class="bg-primary text-white rounded-5 px-3 py-2   border-0">Search</button>
-    </form>
-</section>
+
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <section>
+        <form class="d-flex flex-row h-50 align-items-center justify-content-center form_control">
+            <div class="d-flex flex-row align-items-center  pos_search m-2">
+                <label  for="job"><i class="fas fa-search"></i></label>
+                <input id="job" class="form-control border-0 m-2" type="text" placeholder="Search for a job">
+            </div>
+          
+            <div class="d-flex flex-row align-items-center pos_search">
+                <div class="divider"></div>
+                <span><label><i class="fa fa-map-marker-alt"></i></label></span>
+                <input class="form-control border-0 m-2" name="l" enterkeyhint="search" type="text" placeholder="location" maxlength="512" value="">
+            </div>
+            <button class="bg-primary text-white rounded-5 px-3 py-2 border-0 ">Search</button>
+        </form>
+    </section>
+

@@ -3,10 +3,24 @@
 }
 section {
     border-radius: 2em;
-    width: 600px ;
+    width: 800px ;
     margin:auto;
-   background-color: #c3d1ed;
+   background-color: #e8f0ff;
 }
 input{
-    background-color: #c3d1ed;
+    background-color: #e8f0ff;
+    width: 250px;
+   
+}
+button{
+  margin-left: 3rem;
+}
+.pos_search{
+  margin-left: 3rem;
+}
+.divider {
+  margin-left: 20px;
+  border-left: 1px solid #bad1ff; /* Gray vertical line */
+  height: 20px; /* Adjust height as needed */
+  margin: 0 10px; /* Adjust margin as needed */
 }
