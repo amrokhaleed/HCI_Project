@@ -16,6 +16,7 @@ import { CompanyComponent } from './components/company/company.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { UserRegisterationComponent } from './components/user-registeration/user-registeration.component';
 import { CompanyRegisterationComponent } from './components/company-registeration/company-registeration.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { CompanyRegisterationComponent } from './components/company-registeratio
     CompanyComponent,
     LoginPageComponent,
     UserRegisterationComponent,
-    CompanyRegisterationComponent
+    CompanyRegisterationComponent,
+    HomeComponent
    ],
   imports: [
     CommonModule,

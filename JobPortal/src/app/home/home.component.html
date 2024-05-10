@@ -1,0 +1,32 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="row">
+        <app-search-bar></app-search-bar>
+    </div>
+
+    <div class="row row-cols-3">
+        <div class="col right_col">
+            <app-side-filter></app-side-filter>
+        </div>
+        <div class="col-8 left_col">
+            <app-card-holder></app-card-holder>
+            <div class="container">
+                <div class="row row-cols-3 ">
+                    <div class="col">
+                        <app-job-card></app-job-card>
+                    </div>
+                    <div class="col">
+                        <app-job-card></app-job-card>
+                    </div>
+                    <div class="col">
+                        <app-job-card></app-job-card>
+                    </div>
+                    <div class="col">
+                        <app-job-card></app-job-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

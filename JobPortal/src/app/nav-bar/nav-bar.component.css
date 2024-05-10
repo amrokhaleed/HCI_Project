@@ -1,43 +1,55 @@
 /* Remove underline from all links */
+
 a {
-  text-decoration: none;
-}
-.icon_logo {
-  position: absolute;
-  letter-spacing: -2px;
-  top: 10px;
-  left: 12px;
-}
-/* Three-quarter circle facing down */
-.three-quarter-circle {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  border-style: solid #3276fa;
-  border-radius: 50%;
-  background: #3276fa;
-  position: relative;
+    text-decoration: none;
 }
 
+.icon_logo {
+    position: absolute;
+    letter-spacing: -2px;
+    top: 10px;
+    left: 12px;
+}
+
+
+/* Three-quarter circle facing down */
+
+.three-quarter-circle {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-style: solid #3276fa;
+    border-radius: 50%;
+    background: #3276fa;
+    position: relative;
+}
+
+
 /* Add quarter circle at right bottom side */
+
 .three-quarter-circle::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 15px;
-  height: 15px;
-  background: white;
-  border-radius: 0% 10% 100% 0% / 10% 0% 100% 10%;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 0% 10% 100% 0% / 10% 0% 100% 10%;
 }
+
 .postioning {
-  margin: 2.25em 0 auto 2.25em;
+    margin: 2.25em 0 auto 2.25em;
 }
+
 .link_hover {
-    color: black; /* Default text color */
-    text-decoration: none; /* Remove underline */
-  }
-  
-  .link_hover:hover {
-    color: #3276fa; /* Change text color on hover */
-  }
+    color: black;
+    /* Default text color */
+    text-decoration: none;
+    /* Remove underline */
+}
+
+.link_hover:hover {
+    color: #3276fa;
+    /* Change text color on hover */
+}

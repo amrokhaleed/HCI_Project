@@ -1,9 +1,10 @@
 <div class="flex justify-center items-center h-screen">
     <div class="flex flex-col justify-center items-center box p-6">
         <h2>LOGIN</h2>
-        <form action="" class="flex flex-col gap-4">
-            <input type="text" placeholder="Username" class="input-field">
-            <input type="password" placeholder="Password" class="input-field">
+        <form (ngSubmit)="onSubmit()" action="" class="flex flex-col gap-4">
+            <input type="text" placeholder="Username" class="input-field" name="username" [(ngModel)]="username">
+            <input type="password" placeholder="Password" class="input-field" name="password" [(ngModel)]="password">
+            <p class="error-message text-red-700" *ngIf="loginFailed">Invalid Username or Password !</p>
             <div class="btns">
                 <input type="submit" class="cursor-pointer" value="Login">
                 <p>Don't have an account Yet ?</p>
