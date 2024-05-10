@@ -1,54 +1,46 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>web Portal</title>
-  </head>
-  <body>
-   
-      <app-nav-bar></app-nav-bar>
+</head>
 
+<body>
+    <app-nav-bar></app-nav-bar>
     <div class="container">
-      
-      <div class="row">
-        <app-search-bar></app-search-bar>
-      </div>
 
-      <div class="row row-cols-3">
-        <div class="col right_col"><app-side-filter></app-side-filter></div>
-        <div class="col-9 left_col">
-          <app-card-holder></app-card-holder>
-          <div class="container">
-            <div class="row row-cols-3 ">
-              <div class="col"><app-job-card></app-job-card></div>
-              <div class="col"><app-job-card></app-job-card></div>
-              <div class="col"><app-job-card></app-job-card></div>
-              <div class="col"><app-job-card></app-job-card></div>
-            </div>
-          </div>
+        <div class="row">
+            <app-search-bar></app-search-bar>
         </div>
-      </div>
+
+        <div class="row row-cols-3">
+            <div class="col right_col">
+                <app-side-filter></app-side-filter>
+            </div>
+            <div class="col-8 left_col">
+                <app-card-holder></app-card-holder>
+                <div class="container">
+                    <div class="row row-cols-3 ">
+                        <div class="col">
+                            <app-job-card></app-job-card>
+                        </div>
+                        <div class="col">
+                            <app-job-card></app-job-card>
+                        </div>
+                        <div class="col">
+                            <app-job-card></app-job-card>
+                        </div>
+                        <div class="col">
+                            <app-job-card></app-job-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>
-=======
-<div *ngIf="!isLoginPageOrRegisterPage()" class="Navbar flex items-center justify-between pl-7 pr-7">
-    <img src="../assets/pngtree-find-job-logo-template-designs-vector-illustration-image_341400.jpg" alt="logo">
-    <ul class="flex justify-evenly gap-3">
-        <li>Find Work</li>
-        <li>Browse</li>
-        <li>Manage</li>
-        <li>Groups</li>
-    </ul>
-    <div class="btns">
-        <button class="bg-cyan-500 p-2 text-white mr-2"><a routerLink="/user-profile">Profile</a></button>
-        <button class="bg-cyan-500 p-2 text-white mr-2"><a routerLink="/company-profile">Company</a></button>
-        <button class="bg-cyan-500 p-2 text-white"><a routerLink="/login">Login/Register</a></button>
-    </div>
-
-</div>
-
 <router-outlet></router-outlet>
->>>>>>> origin/Amr

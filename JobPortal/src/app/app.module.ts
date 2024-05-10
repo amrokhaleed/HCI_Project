@@ -1,11 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-import { Library } from '@fortawesome/fontawesome-svg-core';
-import { faS } from '@fortawesome/free-solid-svg-icons';
-import { faR } from '@fortawesome/free-solid-svg-icons';
-//import { FaConfig } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -41,7 +35,6 @@ import { CompanyRegisterationComponent } from './components/company-registeratio
   imports: [
     CommonModule,
     FormsModule,
-    FontAwesomeModule,
     BrowserModule,
     AppRoutingModule
   ],
