@@ -1,0 +1,110 @@
+<div class="">
+    <div class="header bg-[#3376F7]">
+        <h2 class="text-white pl-4 p-4">User Profile</h2>
+    </div>
+    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex justify-between items-start flex-wrap">
+        <div class="user-details">
+            <div class="info flex gap-4">
+                <img src="../../../assets/images.jpeg" alt="">
+                <div class="text">
+                    <p id="username" class="mb-4">John Doe &commat;johnDoe12</p>
+                    <p id="jobTitle" class="mb-4">Front-End Developer</p>
+                    <ul id="reviewStars" class="flex justify-start items-center">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <span class="ml-2">5.0</span>
+                    </ul>
+                </div>
+            </div>
+            <div class="user-metrics mt-4 flex items-start gap-[70px]">
+                <div class="metrics">
+                    <div id="salary" class="mb-4">
+                        <div class="flex items-center gap-3">
+                            <img class="w-3" src="../../../assets/sack-dollar-solid.svg" alt="">
+                            <span>5 USD/hr.</span>
+                        </div>
+                    </div>
+                    <div id="country" class="mb-4">
+                        <i class="fa fa-globe mr-1"></i> Cairo, Egypt
+                    </div>
+                    <div id="rec" class="mb-4">
+                        <i class="fa fa-thumbs-up mr-1"></i> 0 Recommendations
+                    </div>
+                    <div id="done" class="mb-4">
+                        <i class="fa fa-check"></i> 0 Jobs Completed
+                    </div>
+                </div>
+                <div class="description">
+                    <textarea name="desc" rows="6" cols="65" placeholder="Descripe Your Job and Experience in Details"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="verification ">
+            <ul>
+                <li class="flex items-center justify-between gap-7 mb-3">
+                    <div>
+                        <i class="fa fa-address-card"></i> Identity Verification
+                    </div>
+                    <a href="#" class="text-[#3376F7]">Verify</a>
+                </li>
+                <li class="flex items-center justify-between gap-7 mb-3">
+                    <div>
+                        <i class="fa fa-credit-card"></i> Payment Verification
+                    </div>
+                    <a href="#" class="text-[#3376F7]">Verify</a>
+                </li>
+                <li class="flex items-center justify-between gap-7 mb-3">
+                    <div>
+                        <i class="fa fa-phone"></i> Phone Verification
+                    </div>
+                    <a href="#" class="text-[#3376F7]">Verify</a>
+                </li>
+                <li class="flex items-center justify-between gap-7 mb-3">
+                    <div>
+                        <i class="fa fa-envelope"></i> E-mail Verification
+                    </div>
+                    <a href="#" class="text-[#3376F7]">Verify</a>
+                </li>
+                <li class="flex items-center justify-between gap-7 mb-3">
+                    <div>
+                        <i class="fa fa-facebook"></i> Facebook Connection
+                    </div>
+                    <a href="#" class="text-[#3376F7]">Verify</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex justify-between items-start flex-wrap">
+        <div class="portfolio w-[837px]">
+            <h3 class="w-[100%] p-2 text-white bg-[#3376f7]">Portfolio</h3>
+            <div class="upload flex flex-col justify-center items-center p-[70px]">
+                <!-- Input field for uploading photos -->
+                <input type="file" (change)="onFilesSelected($event)" accept="image/*" multiple>
+
+                <!-- Display uploaded images -->
+                <div class="uploaded-images flex items-start justify-start">
+                    <img *ngFor="let item of portfolioItems" [src]="item" alt="Portfolio Image" class="w-20 h-20 object-cover m-1">
+                </div>
+
+                <!-- Message if no photos uploaded -->
+                <div *ngIf="!portfolioItems.length" class="text-gray-500">No portfolio items have been added yet</div>
+            </div>
+        </div>
+        <div class="skills w-[300px]">
+            <div class="w-[100%] p-2 text-white bg-[#3376f7] flex justify-between">
+                <h3 class="">Skills</h3>
+                <button><i class="fa fa-pencil"></i></button>
+            </div>
+
+            <ul class="flex flex-col gap-3 p-[12px]">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JS</li>
+                <li>REACT</li>
+            </ul>
+        </div>
+    </div>
+</div>

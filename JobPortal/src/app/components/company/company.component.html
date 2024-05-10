@@ -1,0 +1,128 @@
+<div>
+    <div class="header bg-[#3376F7]">
+        <h2 class="text-white pl-4 p-4">Company Profile</h2>
+    </div>
+    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex flex-col lg:flex-row justify-between items-start">
+        <div class="company-details">
+            <div class="info flex gap-4">
+                <div class="logo-box" (click)="openFilePicker()">
+                    <input #fileInput type="file" accept="image/*" hidden (change)="onFileSelected($event)">
+                    <img *ngIf="!logoUrl" src="../../../assets/plus-solid.svg" alt="Add Logo">
+                    <img *ngIf="logoUrl" [src]="logoUrl" alt="Company Logo">
+                </div>
+                <div class="text">
+                    <p id="com-name" class="mb-4">CHECK24</p>
+                    <ul id="reviewStars" class="flex justify-start items-center mb-8">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <span class="ml-2">5.0</span>
+                    </ul>
+                    <div class="btns flex flex-row items-center justify-start gap-4">
+                        <button disabled class="text-white bg-[#3376F7] pt-1 pb-1 pl-4 pr-4 ">Follow</button>
+                        <button disabled class="text-white bg-[#3376F7] pt-1 pb-1 pl-4 pr-4">Add Review</button>
+                    </div>
+                </div>
+            </div>
+            <div class="user-metrics mt-4 flex items-start gap-[70px]">
+                <div class="metrics">
+                    <div id="rec" class="mb-4">
+                        <i class="fa fa-thumbs-up mr-1"></i> 0 Recommendations
+                    </div>
+                    <div id="salary" class="mb-4">
+                        <div class="flex items-center gap-3">
+                            <img class="w-3" src="../../../assets/portfolio.png" alt="">
+                            <span>0 Jobs</span>
+                        </div>
+                    </div>
+                    <div id="country" class="mb-4">
+                        <i class="fa fa-star"></i> 0 Reviews
+                    </div>
+                    <div id="done" class="mb-4">
+                        <i class="fa fa-image"></i> 0 Photos
+                    </div>
+                </div>
+                <div class="description">
+                    <textarea name="desc" rows="6" cols="65" placeholder="Describe Your Company and its history in Details"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="locations w-[300px]">
+            <div class="w-[100%] p-2 text-white bg-[#3376f7] flex justify-between">
+                <h3 class="">Locations</h3>
+                <button><img class="w-[20px] h-[20px]" *ngIf="!logoUrl" src="../../../assets/plus-solid.svg" alt="Add Logo"></button>
+            </div>
+            <ul class="p-3">
+                <li *ngFor="let location of locations; let i = index" class="flex items-center justify-between gap-7 mb-3">
+                    <div>
+                        <i class="fa fa-map-pin mr-3"></i>
+                        <input *ngIf="isEditing[i]" type="text" [(ngModel)]="editedLocations[i]" [value]="locations[i]" />
+                        <span *ngIf="!isEditing[i]">{{ location }}</span>
+                    </div>
+                    <a href="#" class="text-[#3376F7]" (click)="toggleEdit(i)">{{ isEditing[i] ? 'Cancel' : 'Edit' }}</a>
+                    <button *ngIf="isEditing[i]" class="hidden" (click)="saveLocation(i)">Save</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex justify-start items-start flex-wrap gap-[100px]">
+        <div class="skills">
+            <div class="w-[100%] p-2 text-white bg-[#3376f7]">
+                <h3 class="">About The Company</h3>
+            </div>
+            <div class="about flex flex-row items-center justify-around p-4 gap-8">
+                <div class="flex flex-col">
+                    <div id="ceo">
+                        <h3 class="mb-2">CEO</h3>
+                        <h2 class="font-bold mb-5">CEO A.Abu Hashima</h2>
+                        <span>Since 2023</span>
+                    </div>
+                    <div id="revenue">
+                        <h3 class="mb-8">REVENUE</h3>
+                        <span class="font-bold">more than<br> $10B (USD)</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div id="founded">
+                        <h3 class="mb-2">FOUNDED</h3>
+                        <h2 class="font-bold mb-5">In Germany</h2>
+                        <span>1997</span>
+                    </div>
+                    <div id="industry">
+                        <h3 class="mb-8">INDUSTRY</h3>
+                        <span class="font-bold">Electronic<br> Engineering</span>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div id="size">
+                        <h3 class="mb-7">Company Size</h3>
+                        <span class="font-bold">more than<br> $10B (USD)</span>
+                    </div>
+                    <div id="head">
+                        <h3 class="mb-14">HeadQuarters</h3>
+                        <span class="font-bold">Zurich</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reviews flex-1">
+            <div class="w-[100%] p-2 text-white bg-[#3376f7]">
+                <h3>Reviews</h3>
+            </div>
+            <div class="reviews-content flex flex-col items-start p-4">
+                <div class="review mb-5">
+                    <div id="username">Amr.kh &commat;amrkhaleed11</div>
+                    <div class="mb-2" id="rating"><span>Rating : </span>4.2 <span><i class="fa fa-star"></i></span></div>
+                    <div id="comment">Great Company and I advice any one To work with them And thanks for your services.</div>
+                </div>
+                <div class="review">
+                    <div id="username">Amr.kh &commat;amrkhaleed11</div>
+                    <div class="mb-2" id="rating"><span>Rating : </span>4.2 <span><i class="fa fa-star"></i></span></div>
+                    <div id="comment">Great Company and I advice any one To work with them And thanks for your services.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
