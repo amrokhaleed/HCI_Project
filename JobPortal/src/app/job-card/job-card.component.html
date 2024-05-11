@@ -1,17 +1,26 @@
-<div class="d-flex bg-white rounded shadow flex-column  card_size">
-  <div >
-    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Ffreebiesupply.com%2Flogos%2Famazon-dark-logo%2F&psig=AOvVaw1VdyhlJCHOeJu-ydc-zRUF&ust=1715288247690000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIjLv-f4_oUDFQAAAAAdAAAAABAZ" alt="amazon"  width="200px" height="200"/>
+<div *ngFor="let job of jobs" class="d-flex bg-white rounded shadow flex-column  card_size">
     <div>
-      <h6>UI UX Designer</h6>
-      <p>amazon</p>
+        <img [src]="job.imageUrl" alt="{{ job.title }}" width="200px" height="200" />
+        <div>
+            <h6>{{ job.title }}</h6>
+            <p>{{ job.company }}</p>
+        </div>
     </div>
-  </div>
-  <div>
-
-      <div><p>jakarta,ID</p></div>
-      <div><p>5000-8000</p></div>
-      <div><p>Full-time</p></div>
-      <div><p>3 july 2023</p></div>
-  </div>
-  <button>Details</button>
+    <div>
+        <div>
+            <p>{{ job.location }}</p>
+        </div>
+        <div>
+            <p>{{ job.salary }}</p>
+        </div>
+        <div>
+            <p>{{ job.type }}</p>
+        </div>
+        <div>
+            <p>{{ job.date }}</p>
+        </div>
+    </div>
+    <button class="btn btn-primary" (click)="showJobDetails(job)">Details</button>
 </div>
+
+<app-job-details-popup *ngIf="showPopup" [jobDetails]="selectedJobDetails" (closePopupEvent)="closePopup()"></app-job-details-popup>

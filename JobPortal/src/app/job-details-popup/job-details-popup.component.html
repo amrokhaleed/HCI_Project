@@ -1,0 +1,12 @@
+<div class="popup" [style.top]="popupTop" [style.left]="popupLeft">
+    <div class="popup-inner">
+        <h2>Job Details</h2>
+        <div>
+            <p><strong>Responsibilities:</strong> {{ jobDetails.responsibilities }}</p>
+            <p><strong>Qualifications:</strong> {{ jobDetails.qualifications }}</p>
+            <p><strong>Benefits:</strong> {{ jobDetails.benefits }}</p>
+            <p><strong>How to Apply:</strong> {{ jobDetails.howToApply }}</p>
+        </div>
+        <button (click)="closePopup()">Close</button>
+    </div>
+</div>
