@@ -13,6 +13,7 @@ export class JobCardComponent {
     {
       title: 'UI UX Designer',
       company: 'Amazon',
+      aboutCompany: 'Amazon is a multinational technology company that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence. It is one of the Big Five companies in the U.S. information technology industry, along with Google, Apple, Microsoft, and Facebook.',
       location: 'Jakarta, ID',
       setting:'on-site',
       salary: '5000-8000',
@@ -45,7 +46,7 @@ export class JobCardComponent {
       benefits: 'Benefits of UI UX Designer...',
       howToApply: 'How to apply for UI UX Designer...'
     }
-    
+
   ];
 
   constructor() { }

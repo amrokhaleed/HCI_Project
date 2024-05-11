@@ -1,19 +1,21 @@
 <div class="flex justify-center items-center h-screen">
     <div class="flex flex-col justify-center items-center box p-6">
         <h2 class="mb-3">Register As User</h2>
-        <form action="" class="flex flex-col gap-4">
+        <form (ngSubmit)="addUser()" class="flex flex-col gap-4" action="">
             <div class="flex flex-row gap-3">
-                <input type="text" placeholder="First Name" class="input-field" required>
-                <input type="text" placeholder="Last Name" class="input-field" required>
+                <input type="text" [(ngModel)]="fname" name="fname" placeholder="First Name" class="input-field" required>
+                <input type="text" [(ngModel)]="lname" name="lname" placeholder="Last Name" class="input-field" required>
             </div>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
-            <input type="password" placeholder="Confirm Password" required>
+            <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
+            <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required>
+            <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
             <div class="terms flex items-center gap-2">
-                <input type="checkbox" id="termsCheckbox">
+                <input type="checkbox" id="termsCheckbox" name="termsCheckbox" [(ngModel)]="termsAccepted" required>
                 <label for="termsCheckbox">I accept the Terms of Use & Privacy Policy</label>
             </div>
-            <input type="submit" class="cursor-pointer" value="Register">
+            <button type="submit" class="cursor-pointer">Register</button> @if (errormassage) {
+            <div class="text-red-500">{{errormassage}}</div>
+            }
             <div class="flex flex-row gap-3">
                 <p>Already Have An Account ?</p>
                 <button class="underline"><a routerLink="/login">Login</a></button>

@@ -9,13 +9,21 @@
             <a class="link_hover mx-5  " routerLink="/about">About</a>
             <a class="link_hover mx-5  " routerLink="/contact">Contact</a>
         </div>
-        <div class="d-flex mt-5 mx-5 ">
+        <div *ngIf="!logged" class="d-flex mt-5 mx-5 ">
             <button class="border-0 bg-white justify-content-end">
-        <a class="bg-white mx-5" routerLink="/login">Sign In</a>
-      </button>
+              <a class="bg-white mx-5" routerLink="/login">Sign In</a>
+            </button>
             <button class="border-0 bg-white">
-        <a class="bg-white border px-3 py-2 border-primary  rounded " routerLink="/user-registeration">Sign Up</a>
-      </button>
+              <a class="bg-white border px-3 py-2 border-primary  rounded " routerLink="/user-registeration">Sign Up</a>
+            </button>
+        </div>
+        <div *ngIf="logged" class="d-flex mt-5 mx-5 ">
+            <button class="border-0 bg-white justify-content-end mr-[50px]">
+              <img class="w-9" src="../../assets/profile.png" alt="">
+            </button>
+            <button class="border-0 bg-white">
+              <a class="bg-white border px-3 py-2 border-primary  rounded " (click)="logout()">Logout</a>
+            </button>
         </div>
     </nav>
     <hr />

@@ -27,7 +27,7 @@ export class AccountsDataService {
 
 
 
-  checkUserIfExists(email: string): Observable<boolean> {
+  /*checkUserIfExists(email: string): Observable<boolean> {
     return this.getAllUsers().pipe(
       map(users => {
         return users.some(u => u.email === email);}));
@@ -37,7 +37,7 @@ export class AccountsDataService {
     return this.getAllcompanies().pipe(
       map(companies => {
         return companies.some(u => u.email === email);}));
-  }
+  }*/
 
 
   addUser(user: User_account): Observable<string> {

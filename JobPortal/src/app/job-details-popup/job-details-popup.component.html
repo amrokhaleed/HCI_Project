@@ -1,13 +1,13 @@
 <div class="popup" [style.top]="popupTop" [style.left]="popupLeft">
-    <div class="popup-inner bg-dark text-white rounded p-4 overflow-y-scroll d-flex">
+    <div class="popup-inner bg-dark text-white rounded-4 p-4 overflow-y-scroll d-flex">
         <div class="container border rounded-1 w-75 h-100">
 
             <div class="row border-bottom rounded-1 p-4">
                 <h2>{{ jobDetails.title }}</h2>
                 <div class="d-flex">
                     <span class="me-2">
-              <i class="fas fa-map-marker-alt"></i>
-            </span>
+            <i class="fas fa-map-marker-alt"></i>
+          </span>
                     <p>{{ jobDetails.location }}</p>
                 </div>
             </div>
@@ -20,26 +20,26 @@
                 <div class="row row-cols-2 border-bottom text-center p-4 ">
                     <div class="d-flex col">
                         <span class="me-2">
-                <i class="fas fa-dollar-sign"></i>
-              </span>
+              <i class="fas fa-dollar-sign"></i>
+            </span>
                         <p>{{ jobDetails.salary }}</p>
                     </div>
                     <div class="d-flex col">
                         <span class="me-2">
-                <i class="fas fa-clock"></i>
-              </span>
+              <i class="fas fa-clock"></i>
+            </span>
                         <p>{{ jobDetails.type }}</p>
                     </div>
                     <div class="d-flex col">
                         <span class="me-2">
-                <i class="far fa-calendar-alt"></i>
-              </span>
+              <i class="far fa-calendar-alt"></i>
+            </span>
                         <p>{{ jobDetails.date }}</p>
                     </div>
                     <div class="d-flex col">
                         <span class="me-2">
-                <i class="fas fa-cogs"></i>
-              </span>
+              <i class="fas fa-cogs"></i>
+            </span>
                         <p>{{ jobDetails.setting }}</p>
                     </div>
                 </div>
@@ -67,6 +67,21 @@
                 <button class="btn btn-primary m-4" (click)="onApply()">Apply</button>
             </div>
 
+        </div>
+        <div class="col border rounded-4 mx-4    ">
+            <img src="../../assets/amazon-logo.webp" alt="job image" class="img_logo mb-1" />
+            <h4 class="mx-4 ">{{jobDetails.company}}</h4>
+            <div class="d-flex border-bottom  px-4  ">
+                <span class="me-2">
+                  <i class="fas fa-map-marker-alt"></i>
+                </span>
+                <p>{{jobDetails.location}}</p>
+
+            </div>
+            <div class="p-3 about_us ">
+                <h6 class="mb-3 ">About Us</h6>
+                <p>{{jobDetails.aboutCompany}}</p>
+            </div>
         </div>
     </div>
 </div>

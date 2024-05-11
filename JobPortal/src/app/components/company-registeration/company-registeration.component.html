@@ -2,17 +2,19 @@
     <div class="flex flex-col justify-center items-center box p-6">
         <h2 class="mb-3">Register As Company</h2>
         <form action="" class="flex flex-col gap-4">
-            <input type="text" placeholder="Company Name">
-            <input type="text" placeholder="Address" required>
-            <input type="number" placeholder="Phone Number" required>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <input type="password" placeholder="Confirm Password" required>
+            <input type="text" [(ngModel)]="CompanyName" name="CompanyName" placeholder="Company Name">
+            <input type="text" [(ngModel)]="Address" name="Address" placeholder="Address" required>
+            <input type="number" [(ngModel)]="PhoneNumber" name="PhoneNumber" placeholder="Phone Number" required>
+            <input type="email" [(ngModel)]="email" name="Email" placeholder="Email">
+            <input type="password" [(ngModel)]="password" name="Password" placeholder="Password">
+            <input type="password" [(ngModel)]="confirmPassword" name="ConfirmPassword" placeholder="Confirm Password" required>
             <div class="terms flex items-center gap-2">
-                <input type="checkbox" id="termsCheckbox">
+                <input type="checkbox" id="termsCheckbox" [(ngModel)]="termsAccepted" name="termsCheckbox" required>
                 <label for="termsCheckbox">I accept the Terms of Use & Privacy Policy</label>
             </div>
-            <input type="submit" class="cursor-pointer" value="Register">
+            <input type="submit" class="cursor-pointer" value="Register"> @if (errormassage) {
+            <div class="text-red-500">{{errormassage}}</div>
+            }
             <div class="flex flex-row gap-3">
                 <p>Already Have An Account ?</p>
                 <button class="underline"><a routerLink="/login">Login</a></button>
