@@ -1,11 +1,50 @@
 .popup {
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 100;
-    background-color: #3276FA;
-    color: white;
-    padding: 20px;
-}
+  }
+  
+  .popup-inner {
+    position: relative; /* Changed from fixed */
+    width: 70%; /* Adjust as needed */
+    max-height: 70%; /* Adjust as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    background-color: #fff; /* Set background color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding for content */
+  }
+  
+  /* Add a semi-transparent overlay */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the transparency as needed */
+    z-index: 9998; /* Ensure it's below the popup */
+  }
+  
+  /* Center the close button */
+  .popup-inner button {
+    display: block;
+    margin: 20px auto 0;
+  }
+  ul {
+    list-style: square;
+  }
+  ul {
+    padding-left: 3rem;
+  }
+  h5{
+    font-size: x-large;
 
-.popup-inner {
-    /* Styles for inner content */
-}
+    margin-bottom: 1rem;
+  }
