@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-job-details-popup',
   templateUrl: './job-details-popup.component.html',
@@ -12,7 +12,7 @@ export class JobDetailsPopupComponent {
   popupTop: string = '50%';
   popupLeft: string = '50%';
 
-  constructor(private elRef: ElementRef) { }
+  constructor(private elRef: ElementRef,private router: Router) { }
 
   ngOnInit() {
     document.body.classList.add('disable-scroll');
@@ -41,5 +41,9 @@ export class JobDetailsPopupComponent {
   }
   closePopup() {
     this.closePopupEvent.emit();
+  }
+
+  onApply() {
+    this.router.navigate(['/job-apply'])
   }
 }

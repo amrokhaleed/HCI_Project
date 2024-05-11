@@ -18,6 +18,7 @@ import { UserRegisterationComponent } from './components/user-registeration/user
 import { CompanyRegisterationComponent } from './components/company-registeration/company-registeration.component';
 import { HomeComponent } from './home/home.component';
 import { JobDetailsPopupComponent } from './job-details-popup/job-details-popup.component';
+import { JobApplyComponent } from './job-apply/job-apply.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { JobDetailsPopupComponent } from './job-details-popup/job-details-popup.
     UserRegisterationComponent,
     CompanyRegisterationComponent,
     HomeComponent,
-    JobDetailsPopupComponent
+    JobDetailsPopupComponent,
+    JobApplyComponent
    ],
   imports: [
     CommonModule,
