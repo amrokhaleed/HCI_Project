@@ -18,4 +18,7 @@ export class NavBarComponent {
       this.router.navigate(['/home']);
   });
   }
+  toHome() {
+    this.router.navigate(["/user-profile"]);
+  }
 }

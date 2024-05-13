@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+interface Skill {
+  name: string;
+}
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -25,5 +28,33 @@ export class UserComponent {
       this.portfolioItems.push(url);
     };
     reader.readAsDataURL(file);
+  }
+  isEditingProfile: boolean = false;
+  hourlyRate: number = 5; // Initial hourly rate
+  country: string = 'Cairo, Egypt'; // Initial country
+  description: string = '';
+  isEditingg: boolean = false;
+  toggleEditProfile() {
+    this.isEditingProfile = !this.isEditingProfile;
+
+    if (!this.isEditingProfile) {
+        // Remove skills with length 0
+        for (let i = 0; i < this.skills.length; i++) {
+            if (this.skills[i].name.length === 0) {
+                this.skills.splice(i, 1);
+                i--; // Decrement i to account for the removed element
+            }
+        }
+    }
+  }
+
+  skills: Skill[] = [{name: '' }];
+
+  addSkill() {
+    if(this.isEditingProfile){
+      this.skills.push({ name: '' });
+    }
+
+
   }
 }

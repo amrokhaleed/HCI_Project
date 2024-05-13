@@ -1,4 +1,3 @@
-
 import { inject,Injectable, signal } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, user } from '@angular/fire/auth';
 import { response } from 'express';

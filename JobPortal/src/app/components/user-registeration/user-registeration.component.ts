@@ -57,7 +57,13 @@ export class UserRegisterationComponent {
       fname: this.fname,
       lname: this.lname,
       email: this.email,
-      password: this.password
+      password: this.password,
+      address:'',
+      decription_of_job:'',
+      job_title:'',
+      salary:'',
+      skills:'',
+      jobs_completed:''
     };
 
 

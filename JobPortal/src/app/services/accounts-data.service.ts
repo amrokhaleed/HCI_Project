@@ -1,11 +1,10 @@
 import { inject, Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, doc, addDoc, deleteDoc, setDoc } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, doc, addDoc, deleteDoc, setDoc,query, where,getDocs } from '@angular/fire/firestore';
 import { response } from 'express';
 import { from , Observable } from 'rxjs';
 import { User_account } from '../Interfaces/user-account'; // Import the user interface
 import { map } from 'rxjs/operators';
 import { company_account } from '../Interfaces/company-account';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -55,7 +54,16 @@ export class AccountsDataService {
 
     return from(respon);
   }
+  updateUser(email: string, user: User_account): Observable<void> {
+    const usersQuery = query(this.usersCollection, where('email', '==', email));
 
+    return from(getDocs(usersQuery).then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        const userDocRef = doc.ref;
+        setDoc(userDocRef, user, { merge: true }); // Use merge option to merge with existing document if it exists
+      });
+    }));
+  }
 
   /*updateUser(id:string , user: User_account): Observable<void> {
 
