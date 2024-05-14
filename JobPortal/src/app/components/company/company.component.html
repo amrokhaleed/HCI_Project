@@ -30,7 +30,7 @@
 
                 <div class="text bg-[#3376f7] p-4">
                     <div class="flex flex-row justify-between">
-                        <p id="com-name" class="mb-4 text-white">CHECK24</p>
+                        <p id="com-name" class="mb-4 text-white">{{company?.name}}</p>
                         <button class="btn bg-white text-dark mr-3" (click)="toggleEditProfile()">
                           {{ editingProfile ? 'Save Profile' : 'Edit Profile' }}
                         </button>
@@ -40,7 +40,7 @@
                         <button disabled class="text-[#black] bg-[white] pt-1 pb-1 pl-4 pr-4">Add Review</button>
                     </div>
                     <div class="description">
-                        <textarea name="desc" rows="6" cols="65" placeholder="Describe Your Company and its history in Details" [disabled]="!editingProfile"></textarea>
+                        <textarea name="desc" rows="6" cols="65" placeholder="Describe Your Company and its history in Details" [(ngModel)]="description" [disabled]="!editingProfile">{{company?.desc}}</textarea>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 <div class="flex justify-center items-center h-screen">
     <div class="flex flex-col justify-center items-center box p-6">
         <h2 class="mb-3">Register As Company</h2>
-        <form action="" class="flex flex-col gap-4">
+        <form action="" (ngSubmit)="addCompany()" class="flex flex-col gap-4">
             <input type="text" [(ngModel)]="CompanyName" name="CompanyName" placeholder="Company Name">
             <input type="text" [(ngModel)]="Address" name="Address" placeholder="Address" required>
             <input type="number" [(ngModel)]="PhoneNumber" name="PhoneNumber" placeholder="Phone Number" required>

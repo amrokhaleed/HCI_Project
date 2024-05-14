@@ -24,7 +24,7 @@ export class CompanyComponent implements OnInit{
   head:string="";
 
   ngOnInit(): void {
-    this.companySubscription = this.database.getuserobject()
+    this.companySubscription = this.database.getcompanyobject()
       .subscribe((company: company_account | undefined) => {
         this.company = company;
         if (this.company) { // Check if user is defined
@@ -98,7 +98,7 @@ export class CompanyComponent implements OnInit{
         locations:this.locations,
       };
 
-      this.database.updateUser(newUser);
+      this.database.updateCompany(newUser);
   }
   addLocation() {
     if(this.editingProfile){

@@ -59,7 +59,15 @@ export class CompanyRegisterationComponent {
       address: this.Address,
       phonenumber: this.PhoneNumber,
       email: this.email,
-      password: this.password
+      password: this.password,
+      desc:'',
+      ceo:'',
+      revenue:'',
+      size:'',
+      industry:'',
+      foundation:'',
+      head:'',
+      locations:[]
     };
 
 

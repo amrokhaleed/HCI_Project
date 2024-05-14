@@ -57,7 +57,39 @@ getuserobject(): Observable<User_account | undefined> {
     })
   );
 }
+getcompanyobject(): Observable<company_account | undefined> {
+  let email = this.getemail();
+  const companiesQuery = query(this.campaniesCollection, where('email', '==', email));
+  return from(getDocs(companiesQuery)).pipe(
+    map((querySnapshot) => {
+      if (!querySnapshot.empty) {
+        // If there is at least one document matching the query
+        const companyData = querySnapshot.docs[0].data(); // Assuming there's only one user with the provided email
+        const id = querySnapshot.docs[0].id;
+        return {
+          id,
+          name: companyData['name'],
+          address: companyData['address'],
+          phonenumber: companyData['phonenumber'],
+          email: companyData['email'],
+          password: companyData['password'],
+          desc: companyData['desc'],
+          ceo: companyData['ceo'],
+          revenue: companyData['revenue'],
+          size: companyData['size'],
+          industry: companyData['industry'],
+          foundation: companyData['foundation'],
+          head: companyData['head'],
+          locations: companyData['locations'],
 
+        } as User_account; // Create a User_account object with id and user data
+      } else {
+        // If no document matches the query
+        return undefined; // Return undefined indicating no user found
+      }
+    })
+  );
+}
 
   getAllUsers(): Observable<User_account[]> {
     return collectionData(this.usersCollection , {idField:'id'}) as Observable<User_account[]>;
@@ -108,7 +140,17 @@ getuserobject(): Observable<User_account | undefined> {
       });
     }));
   }
+  updateCompany(company: company_account): Observable<void> {
+    let email = this.getemail();
+    const campaniesQuery = query(this.campaniesCollection, where('email', '==', email));
 
+    return from(getDocs(campaniesQuery).then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        const companyDocRef = doc.ref;
+        setDoc(companyDocRef, company, { merge: true }); // Use merge option to merge with existing document if it exists
+      });
+    }));
+  }
   /*updateUser(id:string , user: User_account): Observable<void> {
 
     const userDoc = doc(this.usersCollection, 'Users'+id);
