@@ -21,4 +21,5 @@ export class NavBarComponent {
   toHome() {
     this.router.navigate(["/user-profile"]);
   }
+
 }
