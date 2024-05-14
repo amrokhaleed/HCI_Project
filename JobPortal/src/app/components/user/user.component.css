@@ -1,5 +1,5 @@
 .user-details {
-    border: 2px solid #5BBCFF;
+    border: 2px solid #3276FA;
     padding: 18px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -8,10 +8,20 @@
     -o-border-radius: 5px;
 }
 
-.user-metrics .description textarea {
-    border: 2px solid #5BBCFF;
+.user-details input[type=number] {
+    border: 1px solid black;
+}
+
+.user-details img {
+    width: 200px;
+    height: 200px;
+}
+
+.description textarea {
+    border: 2px solid #3276FA;
     padding: 8px;
     border-radius: 5px;
+    background-color: white;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -19,7 +29,7 @@
 }
 
 .verification {
-    border: 1px solid #5BBCFF;
+    border: 1px solid #3276FA;
     padding: 15px;
 }
 
@@ -28,9 +38,25 @@
 }
 
 .portfolio {
-    border: 1px solid #5BBCFF;
+    border: 1px solid #3276FA;
 }
 
 .skills {
-    border: 1px solid #5BBCFF;
+    border: 1px solid #3276FA;
+}
+
+.skills input {
+    border: 2px solid #3276FA;
+    padding: 2px;
+}
+
+.skills button {
+    height: 20px;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
 }

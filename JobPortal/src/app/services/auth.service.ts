@@ -1,4 +1,3 @@
-
 import { inject,Injectable, signal } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, user } from '@angular/fire/auth';
 import { response } from 'express';
@@ -67,6 +66,7 @@ export class AuthService {
 
   login(email:string, pass:string):Observable<void>{
     localStorage.setItem('dataSource', "true");
+
     AuthService.islogin=true;
     const promises = signInWithEmailAndPassword(this.firebaseauth,email,pass).then(()=>{});
     return from(promises);
@@ -75,6 +75,8 @@ export class AuthService {
 
   logout():Observable<void>{
     localStorage.setItem('dataSource', "false");
+    localStorage.setItem('type', "");
+    localStorage.setItem('email', "");
     AuthService.islogin=false;
     const promises = signOut(this.firebaseauth);
     return from(promises);

@@ -13,7 +13,7 @@
                 <input type="checkbox" id="termsCheckbox" name="termsCheckbox" [(ngModel)]="termsAccepted" required>
                 <label for="termsCheckbox">I accept the Terms of Use & Privacy Policy</label>
             </div>
-            <button type="submit" class="cursor-pointer">Register</button> @if (errormassage) {
+            <button type="submit" class="cursor-pointer bg-blue-600">Register</button> @if (errormassage) {
             <div class="text-red-500">{{errormassage}}</div>
             }
             <div class="flex flex-row gap-3">

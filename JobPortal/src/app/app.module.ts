@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { CardHolderComponent } from './card-holder/card-holder.component';
@@ -22,6 +22,7 @@ import { CompanyRegisterationComponent } from './components/company-registeratio
 import { HomeComponent } from './home/home.component';
 import { JobDetailsPopupComponent } from './job-details-popup/job-details-popup.component';
 import { JobApplyComponent } from './job-apply/job-apply.component';
+import { faS, fas } from '@fortawesome/free-solid-svg-icons';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBqVCyrt5Wz8MKLgkekI6eajr21CzcpksI",
@@ -55,7 +56,8 @@ const firebaseConfig = {
     CommonModule,
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [
     provideClientHydration(),

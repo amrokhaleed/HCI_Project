@@ -34,7 +34,10 @@ export class LoginPageComponent {
           console.log('Current type:', s);
           this.isLogged.sharedData = true;
           if (s === "user") {
+            localStorage.setItem('type', "user");
+            localStorage.setItem('email', this.email);
             this.router.navigate(['/home']);
+
           }
           // else {
           //   this.router.navigate(['/company-home']);
