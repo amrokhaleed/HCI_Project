@@ -1,26 +1,45 @@
-<div *ngFor="let job of jobs" class="d-flex bg-white rounded shadow flex-column  card_size">
-    <div>
-        <img [src]="job.imageUrl" alt="{{ job.title }}" width="200px" height="200" />
-        <div>
-            <h6>{{ job.title }}</h6>
-            <p>{{ job.company }}</p>
-        </div>
+<div class="d-flex container bg-white rounded shadow flex-column card_size">
+  <div class="row">
+    <div class="col">
+      <img
+        src="../../assets/amazon-logo.webp"
+        alt="{{ jobs.title }}"
+        width="100px"
+        height="100"
+      />
     </div>
-    <div>
-        <div>
-            <p>{{ job.location }}</p>
-        </div>
-        <div>
-            <p>{{ job.salary }}</p>
-        </div>
-        <div>
-            <p>{{ job.type }}</p>
-        </div>
-        <div>
-            <p>{{ job.date }}</p>
-        </div>
+
+    <div class="col mt-4">
+      <h6>{{ jobs.title }}</h6>
+      <p>{{ jobs.company }}</p>
     </div>
-    <button class="btn btn-primary" (click)="showJobDetails(job)">Details</button>
+  </div>
+
+  <div class="row row-cols-2 .details">
+    <div class="col mb-2 d-flex">
+      <span>📍</span>
+      <p>{{ jobs.location }}</p>
+    </div>
+    <div class="col mb-2 d-flex">
+      <span>💰</span>
+      <p>{{ jobs.salary }}</p>
+    </div>
+    <div class="col mb-2 d-flex">
+      <span>📋</span>
+      <p>{{ jobs.type }}</p>
+    </div>
+    <div class="col mb-2 d-flex">
+      <span>📆</span>
+      <p>{{ jobs.date }}</p>
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="showJobDetails(jobs)">
+    Details
+  </button>
 </div>
 
-<app-job-details-popup *ngIf="showPopup" [jobDetails]="selectedJobDetails" (closePopupEvent)="closePopup()"></app-job-details-popup>
+<app-job-details-popup
+  *ngIf="showPopup"
+  [jobDetails]="selectedJobDetails"
+  (closePopupEvent)="closePopup()"
+></app-job-details-popup>

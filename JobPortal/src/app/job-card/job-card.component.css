@@ -1,10 +1,13 @@
 .card_size{
-    width: 18rem;
+    width: 350px;
+    height: 250px;
    margin-top: 2rem;
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     transition: all 0.3s ease-in-out;
-    height: auto;
-    
+   
 }
+.details{
+   padding-left: 2rem;
+}   

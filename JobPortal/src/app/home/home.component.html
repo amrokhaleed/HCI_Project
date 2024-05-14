@@ -1,32 +1,25 @@
 <app-nav-bar></app-nav-bar>
 <div class="container">
-    <div class="row">
-        <app-search-bar></app-search-bar>
+  <div class="row">
+    <app-search-bar (searchQueryChange)="onSearch($event)"></app-search-bar>
+  </div>
+
+  <div class="row">
+    <!-- Sidebar filter column -->
+    <div class="col-md-3"> <!-- For medium and larger screens -->
+      <app-side-filter></app-side-filter>
     </div>
 
-    <div class="row row-cols-3">
-        <div class="col right_col">
-            <app-side-filter></app-side-filter>
+    <!-- Main content column -->
+    <div class="col"> <!-- For medium and larger screens -->
+      <app-card-holder></app-card-holder>
+
+      <div class="row row-cols-3">
+        <div class="col" *ngFor="let job of filteredJobs">
+          <app-job-card [jobs]="job"></app-job-card>
         </div>
-        <div class="col-8 left_col">
-            <app-card-holder></app-card-holder>
-            <div class="container">
-                <div class="row row-cols-3 ">
-                    <div class="col">
-                        <app-job-card></app-job-card>
-                    </div>
-                    <div class="col">
-                        <app-job-card></app-job-card>
-                    </div>
-                    <div class="col">
-                        <app-job-card></app-job-card>
-                    </div>
-                    <div class="col">
-                        <app-job-card></app-job-card>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
 <router-outlet></router-outlet>
