@@ -6,9 +6,13 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { UserRegisterationComponent } from './components/user-registeration/user-registeration.component';
 import { CompanyRegisterationComponent } from './components/company-registeration/company-registeration.component';
 import { HomeComponent } from './home/home.component';
+import { AddJobComponent } from './add-job/add-job.component';
+import { CandidatesComponent } from './candidates/candidates.component';
 import { JobApplyComponent } from './job-apply/job-apply.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
+  {path:'add-job',component:AddJobComponent},
+  {path:'candidates',component:CandidatesComponent},
   { path: 'home', component: HomeComponent },
   { path: 'user-profile', component: UserComponent },
   {path:'company-profile', component: CompanyComponent},

@@ -1,0 +1,32 @@
+/* app.component.css */
+
+.container {
+    background-color: #3276FA;
+    display: flex;
+    flex-direction: column;
+    /* Align items vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.center-table {
+    width: 80%;
+    /*Adjustasneeded*/
+    text-align: center;
+    border-collapse: collapse;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.center-table th,
+.center-table td {
+    padding: 8px;
+    border-bottom: 1px solid #3276FA;
+    /* Add white border */
+    background-color: white;
+    /* Set background color to white */
+}

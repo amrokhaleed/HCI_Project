@@ -24,6 +24,8 @@ import { JobDetailsPopupComponent } from './job-details-popup/job-details-popup.
 import { JobApplyComponent } from './job-apply/job-apply.component';
 import { faS, fas } from '@fortawesome/free-solid-svg-icons';
 import { JobFilterPipe } from './job-filter.pipe';
+import { AddJobComponent } from './add-job/add-job.component';
+import { CandidatesComponent } from './candidates/candidates.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBqVCyrt5Wz8MKLgkekI6eajr21CzcpksI",
@@ -49,7 +51,9 @@ const firebaseConfig = {
     HomeComponent,
     JobDetailsPopupComponent,
     JobApplyComponent,
-    JobFilterPipe
+    JobFilterPipe,
+    AddJobComponent,
+    CandidatesComponent
    ],
   imports: [
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
