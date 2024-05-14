@@ -1,126 +1,110 @@
-<div>
+<app-nav-bar></app-nav-bar>
+<div class="mt-[100px]">
     <div class="header bg-[#3376F7]">
         <h2 class="text-white pl-4 p-4">Company Profile</h2>
     </div>
-    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex flex-col lg:flex-row justify-between items-start">
+    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex flex-col lg:flex-row justify-center items-start gap-4">
         <div class="company-details">
-            <div class="info flex gap-4">
-                <div class="logo-box" (click)="openFilePicker()">
-                    <input #fileInput type="file" accept="image/*" hidden (change)="onFileSelected($event)">
-                    <img *ngIf="!logoUrl" src="../../../assets/plus-solid.svg" alt="Add Logo">
-                    <img *ngIf="logoUrl" [src]="logoUrl" alt="Company Logo">
-                </div>
-                <div class="text">
-                    <p id="com-name" class="mb-4">CHECK24</p>
-                    <ul id="reviewStars" class="flex justify-start items-center mb-8">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <span class="ml-2">5.0</span>
-                    </ul>
-                    <div class="btns flex flex-row items-center justify-start gap-4">
-                        <button disabled class="text-white bg-[#3376F7] pt-1 pb-1 pl-4 pr-4 ">Follow</button>
-                        <button disabled class="text-white bg-[#3376F7] pt-1 pb-1 pl-4 pr-4">Add Review</button>
+            <div class="infoo flex gap-4">
+                <div>
+                    <div class="logo-box" (click)="openFilePicker()">
+                        <input #fileInput type="file" accept="image/*" hidden (change)="onFileSelected($event)">
+                        <img *ngIf="!logoUrl" src="../../../assets/plus-solid.svg" alt="Add Logo">
+                        <img *ngIf="logoUrl" [src]="logoUrl" alt="Company Logo">
                     </div>
-                </div>
-            </div>
-            <div class="user-metrics mt-4 flex items-start gap-[70px]">
-                <div class="metrics">
-                    <div id="rec" class="mb-4">
-                        <i class="fa fa-thumbs-up mr-1"></i> 0 Recommendations
-                    </div>
-                    <div id="salary" class="mb-4">
-                        <div class="flex items-center gap-3">
-                            <img class="w-3" src="../../../assets/portfolio.png" alt="">
-                            <span>0 Jobs</span>
+                    <div class="metrics flex flex-col mt-3 gap-2">
+                        <div>
+                            <span>👍</span> 0 Recommendations
+                        </div>
+                        <div class="">
+                            <span>💼</span> 0 Jobs
+                        </div>
+                        <div>
+                            <span>📝</span> 0 Reviews
+                        </div>
+                        <div>
+                            <span>🖼️</span> 0 Photos
                         </div>
                     </div>
-                    <div id="country" class="mb-4">
-                        <i class="fa fa-star"></i> 0 Reviews
-                    </div>
-                    <div id="done" class="mb-4">
-                        <i class="fa fa-image"></i> 0 Photos
-                    </div>
                 </div>
-                <div class="description">
-                    <textarea name="desc" rows="6" cols="65" placeholder="Describe Your Company and its history in Details"></textarea>
+
+                <div class="text bg-[#3376f7] p-4">
+                    <div class="flex flex-row justify-between">
+                        <p id="com-name" class="mb-4 text-white">CHECK24</p>
+                        <button class="btn bg-white text-dark mr-3" (click)="toggleEditProfile()">
+                          {{ editingProfile ? 'Save Profile' : 'Edit Profile' }}
+                        </button>
+                    </div>
+                    <div class="btns flex flex-row items-center justify-start gap-4">
+                        <button disabled class="text-[black] bg-[white] pt-1 pb-1 pl-4 pr-4 ">Follow</button>
+                        <button disabled class="text-[#black] bg-[white] pt-1 pb-1 pl-4 pr-4">Add Review</button>
+                    </div>
+                    <div class="description">
+                        <textarea name="desc" rows="6" cols="65" placeholder="Describe Your Company and its history in Details" [disabled]="!editingProfile"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="locations w-[300px]">
-            <div class="w-[100%] p-2 text-white bg-[#3376f7] flex justify-between">
+            <div class="w-[100%] p-2 text-white bg-[#3376f7] flex justify-between items-center">
                 <h3 class="">Locations</h3>
-                <button><img class="w-[20px] h-[20px]" *ngIf="!logoUrl" src="../../../assets/plus-solid.svg" alt="Add Logo"></button>
+                <button class="btn btn-primary bg-white text-black p-2" (click)="addLocation()">Add</button>
             </div>
             <ul class="p-3">
-                <li *ngFor="let location of locations; let i = index" class="flex items-center justify-between gap-7 mb-3">
-                    <div>
-                        <i class="fa fa-map-pin mr-3"></i>
-                        <input *ngIf="isEditing[i]" type="text" [(ngModel)]="editedLocations[i]" [value]="locations[i]" />
-                        <span *ngIf="!isEditing[i]">{{ location }}</span>
-                    </div>
-                    <a href="#" class="text-[#3376F7]" (click)="toggleEdit(i)">{{ isEditing[i] ? 'Cancel' : 'Edit' }}</a>
-                    <button *ngIf="isEditing[i]" class="hidden" (click)="saveLocation(i)">Save</button>
+                <li *ngFor="let location of locations; let i = index">
+                    <input type="text" class="p-2" [(ngModel)]="locations[i]" [disabled]="!editingProfile">
                 </li>
             </ul>
         </div>
     </div>
-    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex justify-start items-start flex-wrap gap-[100px]">
-        <div class="skills">
+    <div class="container mx-auto px-4 py-8 lg:px-20 xl:px-32 flex justify-center items-start flex-wrap gap-4">
+        <div class="info">
             <div class="w-[100%] p-2 text-white bg-[#3376f7]">
                 <h3 class="">About The Company</h3>
             </div>
-            <div class="about flex flex-row items-center justify-around p-4 gap-8">
+            <div class="about flex flex-row items-start justify-around p-4 gap-8">
                 <div class="flex flex-col">
                     <div id="ceo">
                         <h3 class="mb-2">CEO</h3>
-                        <h2 class="font-bold mb-5">CEO A.Abu Hashima</h2>
+                        <h2 class="font-bold mb-5">CEO <input type="text" [(ngModel)]="ceo" [disabled]="!editingProfile"></h2>
                         <span>Since 2023</span>
                     </div>
                     <div id="revenue">
                         <h3 class="mb-8">REVENUE</h3>
-                        <span class="font-bold">more than<br> $10B (USD)</span>
+                        <span class="font-bold">more than<br><input type="text" [(ngModel)]="revenue" [disabled]="!editingProfile"> (USD)</span>
                     </div>
                 </div>
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col">
                     <div id="founded">
                         <h3 class="mb-2">FOUNDED</h3>
-                        <h2 class="font-bold mb-5">In Germany</h2>
+                        <h2 class="font-bold mb-5">In <input type="text" [(ngModel)]="foundation" [disabled]="!editingProfile"></h2>
                         <span>1997</span>
                     </div>
                     <div id="industry">
                         <h3 class="mb-8">INDUSTRY</h3>
-                        <span class="font-bold">Electronic<br> Engineering</span>
+                        <span class="font-bold"><input type="text" [(ngModel)]="industry" [disabled]="!editingProfile"></span>
                     </div>
                 </div>
-                <div class="flex flex-col items-center">
+                <div class="flex flex-col">
                     <div id="size">
                         <h3 class="mb-7">Company Size</h3>
-                        <span class="font-bold">more than<br> $10B (USD)</span>
+                        <span class="font-bold">more than<br><input type="text" [(ngModel)]="size" [disabled]="!editingProfile"> (USD)</span>
                     </div>
                     <div id="head">
                         <h3 class="mb-14">HeadQuarters</h3>
-                        <span class="font-bold">Zurich</span>
+                        <input type="text" [(ngModel)]="head" [disabled]="!editingProfile">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="reviews flex-1">
+        <div class="reviews">
             <div class="w-[100%] p-2 text-white bg-[#3376f7]">
                 <h3>Reviews</h3>
             </div>
-            <div class="reviews-content flex flex-col items-start p-4">
-                <div class="review mb-5">
-                    <div id="username">Amr.kh &commat;amrkhaleed11</div>
-                    <div class="mb-2" id="rating"><span>Rating : </span>4.2 <span><i class="fa fa-star"></i></span></div>
-                    <div id="comment">Great Company and I advice any one To work with them And thanks for your services.</div>
-                </div>
-                <div class="review">
-                    <div id="username">Amr.kh &commat;amrkhaleed11</div>
-                    <div class="mb-2" id="rating"><span>Rating : </span>4.2 <span><i class="fa fa-star"></i></span></div>
-                    <div id="comment">Great Company and I advice any one To work with them And thanks for your services.</div>
+            <div class="reviews-content flex flex-col items-start p-4 w-[100%]">
+                <div class="review mb-2 p-2" *ngFor="let review of reviews">
+                    <p id="username">&commat;{{ review.username }}</p>
+                    <div id="comment">{{ review.comment }}</div>
                 </div>
             </div>
         </div>

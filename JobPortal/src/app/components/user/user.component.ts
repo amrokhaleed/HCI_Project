@@ -9,9 +9,6 @@ import { AccountsDataService } from '../../services/accounts-data.service';
   styleUrl: './user.component.css'
 })
 export class UserComponent implements OnInit{
-
-
-
   portfolioItems: string[] = []; // Array to store uploaded photo URLs
   database = inject(AccountsDataService);
   userSubscription: Subscription | undefined;

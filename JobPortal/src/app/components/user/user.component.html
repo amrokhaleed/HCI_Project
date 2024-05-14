@@ -35,7 +35,7 @@
                             <p id="username" class="mb-4">{{username}}</p>
                             <button class="btn bg-white text-dark mr-3" (click)="toggleEditProfile()">{{ isEditingProfile ? 'Save Profile' : 'Edit Profile' }}</button>
                         </div>
-                        <input id="jobTitle" class="mb-4 text-dark" type="text"  [disabled]="!isEditingProfile" [(ngModel)]="job_title">
+                        <input id="jobTitle" class="mb-4 text-dark" type="text" [disabled]="!isEditingProfile" [(ngModel)]="job_title">
 
                     </div>
                     <div class="description">

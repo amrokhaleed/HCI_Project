@@ -1,13 +1,59 @@
-import { Component,ViewChild,ElementRef } from '@angular/core';
-
+import { Component,ViewChild,ElementRef ,inject, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { company_account } from '../../Interfaces/company-account';
+import { AccountsDataService } from '../../services/accounts-data.service';
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
   styleUrl: './company.component.css'
 })
-export class CompanyComponent {
-  logoUrl: string | null = null;
+export class CompanyComponent implements OnInit{
 
+  database = inject(AccountsDataService);
+  companySubscription: Subscription | undefined;
+  logoUrl: string | null = null;
+  company:company_account | undefined;
+  name:string='';
+  ceo:string='';
+  description:string='';
+  rev:string='';
+  revenue:string="";
+  foundation:string = "";
+  industry:string="";
+  size:string="";
+  head:string="";
+
+  ngOnInit(): void {
+    this.companySubscription = this.database.getuserobject()
+      .subscribe((company: company_account | undefined) => {
+        this.company = company;
+        if (this.company) { // Check if user is defined
+          this.locations = this.company.locations ?? [];
+          this.rev = this.company.revenue ?? '';
+          this.description = this.company.desc??'';
+          this.ceo =this.company.ceo??'';
+          this.size=this.company.size??'';
+          this.name = this.company.name??'';
+          this.foundation = this.company.foundation??'';
+          this.industry = this.company.industry??'';
+          this.head = this.company.head??'';
+        }
+      });
+  }
+  reviews = [
+    {
+      username: "JohnDoe",
+      comment: "Great Company and I advise anyone to work with them. Thanks for your services."
+    },
+    {
+      username: "JaneSmith",
+      comment: "Excellent service! I highly recommend them to everyone."
+    },
+    {
+      username: "MikeJohnson",
+      comment: "Amazing experience! Will definitely work with them again."
+    }
+  ];
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
   openFilePicker(): void {
@@ -23,20 +69,40 @@ export class CompanyComponent {
     reader.readAsDataURL(file);
   }
 
-  // Locations Editor
-  locations: string[] = ['Cairo, Egypt', 'Addis Ababa, Ethiopia', 'Dakar, Senegal', 'Bremen, Germany', 'Berlin, Germany'];
-  isEditing: boolean[] = new Array(this.locations.length).fill(false);
-  editedLocations: string[] = new Array(this.locations.length).fill('');
+  // Handling Input field
 
-  toggleEdit(index: number): void {
-    this.isEditing[index] = !this.isEditing[index];
-    if (!this.isEditing[index]) {
-      this.editedLocations[index] = '';
-    }
+  editingProfile: boolean = false;
+  locations: string[] = [];
+  toggleEditProfile() {
+    this.editingProfile = !this.editingProfile;
+    if (!this.editingProfile) {
+        for (let i = 0; i < this.locations.length; i++) {
+            if (this.locations[i].length === 0) {
+                this.locations.splice(i, 1);
+                i--; // Decrement i to account for the removed element
+            }
+        }
+      }
+      const newUser: company_account = {
+        name:  this.company?.name,
+        email: this.company?.email,
+        password: this.company?.password,
+        address:this.company?.address,
+        phonenumber:this.company?.phonenumber,
+        ceo: this.ceo,
+        desc:this.description,
+        revenue:this.rev,
+        size:this.size,
+        industry:this.industry,
+        head:this.head,
+        locations:this.locations,
+      };
+
+      this.database.updateUser(newUser);
   }
-
-  saveLocation(index: number): void {
-    this.locations[index] = this.editedLocations[index];
-    this.toggleEdit(index);
+  addLocation() {
+    if(this.editingProfile){
+      this.locations.push('');
+    }
   }
 }

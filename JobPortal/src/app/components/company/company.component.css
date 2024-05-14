@@ -8,10 +8,11 @@
     -o-border-radius: 5px;
 }
 
-.user-metrics .description textarea {
+.description textarea {
     border: 2px solid #5BBCFF;
     padding: 8px;
     border-radius: 5px;
+    margin-top: 20px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -26,12 +27,52 @@
     padding: 5px;
 }
 
+.locations input {
+    border: 1px solid black;
+}
+
 .portfolio {
     border: 1px solid #5BBCFF;
 }
 
-.skills {
+.info {
     border: 1px solid #5BBCFF;
+}
+
+.info #ceo input {
+    width: 150px;
+    border: 1px solid black;
+    padding: 4px;
+}
+
+.info #revenue input {
+    width: 50px;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+.info #founded input {
+    width: 100px;
+    border: 1px solid black;
+    padding: 4px;
+}
+
+.info #industry input {
+    width: 120px;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+.info #size input {
+    width: 50px;
+    border: 1px solid black;
+    padding: 2px;
+}
+
+.info #head input {
+    width: 100px;
+    border: 1px solid black;
+    padding: 2px;
 }
 
 .logo-box {
@@ -74,7 +115,18 @@
     border: 1px solid #5BBCFF;
 }
 
+.reviews .review {
+    border-bottom: 1px solid black;
+}
+
 .reviews #comment {
     border: 1px solid black;
     padding: 6px;
+}
+
+.reviews .review #username {
+    width: 150px;
+    padding: 1px 4px;
+    border: 1px solid black;
+    margin-bottom: 4px;
 }
