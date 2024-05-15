@@ -20,12 +20,17 @@ export class JobCardComponent {
   ngOnInit() {
     this.jobCardUserType = this.accountType.gettype();
     console.log(this.jobCardUserType);
+    console.log(this.jobs);
+    console.log(this.selectedJobDetails);
   }
   showJobDetails(job: any) {
     this.selectedJobDetails = job;
     this.showPopup = true;
   }
-
+  editJob () {
+    const queryParams = encodeURIComponent(JSON.stringify(this.jobs));
+    this.router.navigate(['/add-job'], { queryParams: { job: queryParams } });
+  }
   closePopup() {
     this.showPopup = false;
   }
@@ -34,7 +39,7 @@ export class JobCardComponent {
   }
   deleteJob() {
     this.jobData.deleteJob(this.jobs.id).subscribe(() => {
-      console.log('Job deleted successfully');
+      window.location.reload();
     });
   }
 }

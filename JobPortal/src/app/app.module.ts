@@ -26,6 +26,9 @@ import { faS, fas } from '@fortawesome/free-solid-svg-icons';
 import { JobFilterPipe } from './job-filter.pipe';
 import { AddJobComponent } from './add-job/add-job.component';
 import { CandidatesComponent } from './candidates/candidates.component';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBqVCyrt5Wz8MKLgkekI6eajr21CzcpksI",
@@ -35,6 +38,7 @@ const firebaseConfig = {
   messagingSenderId: "244817505106",
   appId: "1:244817505106:web:bf338f0b8a698f39e5e88b"
 };
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +71,8 @@ const firebaseConfig = {
   ],
   providers: [
     provideClientHydration(),
-    Location
+    Location,
+    { provide: FIREBASE_OPTIONS, useValue: firebaseConfig }
   ],
   bootstrap: [AppComponent]
 })

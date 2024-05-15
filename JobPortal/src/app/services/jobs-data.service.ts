@@ -18,10 +18,15 @@ export class JobsDataService {
     return collectionData(this.jobssCollection , {idField:'id'}) as Observable<Job[]>;
   }
 
-  getJobsByEmail(email:string):Observable<Job[]>{
+  getJobsByEmail(email: string): Observable<Job[]> {
     const jobsQuery = query(this.jobssCollection, where('email', '==', email));
-    return from(getDocs(jobsQuery)).pipe( map(snapshot => snapshot.docs.map(doc => doc.data() as Job)));
-
+    return from(getDocs(jobsQuery)).pipe(
+      map(snapshot => snapshot.docs.map(doc => {
+        const data = doc.data() as Job;
+        data.id = doc.id;
+        return data;
+      }))
+    );
   }
 
 

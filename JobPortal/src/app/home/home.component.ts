@@ -13,16 +13,28 @@ export class HomeComponent {
   filteredJobs: any[] = [];
   searchQuery: string = '';
   dataLoaded: boolean = false;
+  accountData = inject(AccountsDataService);
+  jobdata = inject(JobsDataService);
+  homeUserType: string='';
     constructor(private jobData: JobsDataService) { }
 
     ngOnInit() {
+      this.homeUserType =this.accountData.gettype();
       // Fetch data when component initializes
-      this.jobData.getAlljobs().subscribe((jobs) => {
-        this.allJobs = jobs;
-        this.filteredJobs = this.allJobs; // Initialize filteredJobs with allJobs
-        this.dataLoaded = true; // Set the flag to true after data is fetched
-        console.log("this is home" + this.allJobs);  // Check if data is fetched successfully
-      });
+      if(this.homeUserType === "user") {
+        this.jobData.getAlljobs().subscribe((jobs) => {
+          this.allJobs = jobs;
+          this.filteredJobs = this.allJobs; // Initialize filteredJobs with allJobs
+          this.dataLoaded = true; // Set the flag to true after data is fetched
+          console.log("this is home" + this.allJobs);  // Check if data is fetched successfully
+        });
+      }
+      else {
+        this.jobData.getJobsByEmail(this.accountData.getemail()).subscribe((jobs) => {
+          this.filteredJobs = jobs;
+          this.dataLoaded = true;
+        });
+      }
     }
 
   onSearch(query: string[]) {
