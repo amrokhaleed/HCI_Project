@@ -84,4 +84,5 @@ select option {
     content: attr(data-placeholder);
     color: #aaa; /* Placeholder color */
   }
-  
+  /* Define transition for opacity */
+

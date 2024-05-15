@@ -1,6 +1,6 @@
 .card_size{
     width: 350px;
-    height: 250px;
+    height: fit-content;
    margin-top: 2rem;
     padding: 1rem;
     border-radius: 1rem;
@@ -11,3 +11,6 @@
 .details{
    padding-left: 2rem;
 }   
+.details p{
+    width: fit-content;
+}

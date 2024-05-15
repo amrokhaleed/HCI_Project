@@ -42,7 +42,7 @@ export class LoginPageComponent {
           }
           else if (s === "company") {
 
-            this.router.navigate(['/company-profile']);
+            this.router.navigate(['/home']);
           }
         });
 

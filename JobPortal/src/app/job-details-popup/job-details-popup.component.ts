@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef,inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccountsDataService } from '../services/accounts-data.service';
 @Component({
   selector: 'app-job-details-popup',
   templateUrl: './job-details-popup.component.html',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
 export class JobDetailsPopupComponent {
   @Input() jobDetails: any;
   @Output() closePopupEvent = new EventEmitter();
-
+  accountType = inject(AccountsDataService);
+  jobDetailsUserType: string = '';
   popupTop: string = '50%';
   popupLeft: string = '50%';
 
@@ -16,6 +18,7 @@ export class JobDetailsPopupComponent {
 
   ngOnInit() {
     document.body.classList.add('disable-scroll');
+    this.jobDetailsUserType = this.accountType.gettype(); 
     this.calculatePopupPosition();
     window.addEventListener('scroll', this.calculatePopupPosition.bind(this));
     window.addEventListener('resize', this.calculatePopupPosition.bind(this));

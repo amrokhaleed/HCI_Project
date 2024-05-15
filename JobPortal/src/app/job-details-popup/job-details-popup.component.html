@@ -1,72 +1,119 @@
 <div class="popup" [style.top]="popupTop" [style.left]="popupLeft">
-    <div class="popup-inner bg-dark text-white rounded-4 p-4 overflow-y-scroll d-flex">
-        <div class="container border rounded-1 w-75 h-100">
-
-            <div class="row border-bottom rounded-1 p-4">
-                <h2>{{ jobDetails.title }}</h2>
-                <div class="d-flex">
-                    <span class="me-2">
-            <i class="fas fa-map-marker-alt"></i>
-          </span>
-                    <p>{{ jobDetails.location }}</p>
-                </div>
+  <div  class="popup-inner bg-dark overflow-y-scroll rounded-4 p-4 " >
+    <div class=" text-white  d-flex" *ngIf="jobDetailsUserType === 'user'">
+        <div class="container border rounded-4 w-75">
+            <div class="row border-bottom rounded-1 p-4  ">
+              <h2>{{ jobDetails.title }}</h2>
+              <div class="d-flex">
+                <span class="me-2">
+                  <i class="fas fa-map-marker-alt"></i>
+                </span>
+                <p>{{ jobDetails.location }}</p>
+              </div>
             </div>
-
+      
             <div class="row border-bottom p-4">
-                <h5>Description</h5>
-                <p>{{ jobDetails.description }}</p>
+              <h5>Description</h5>
+              <p>{{ jobDetails.description }}</p>
             </div>
-            <div class="row justify-content-center ">
-                <div class="row row-cols-2 border-bottom text-center p-4 ">
-                    <div class="d-flex col">
-                        <span class="me-2">
-              <i class="fas fa-dollar-sign"></i>
-            </span>
-                        <p>{{ jobDetails.salary }}</p>
-                    </div>
-                    <div class="d-flex col">
-                        <span class="me-2">
-              <i class="fas fa-clock"></i>
-            </span>
-                        <p>{{ jobDetails.type }}</p>
-                    </div>
-                    <div class="d-flex col">
-                        <span class="me-2">
-              <i class="far fa-calendar-alt"></i>
-            </span>
-                        <p>{{ jobDetails.date }}</p>
-                    </div>
-                    <div class="d-flex col">
-                        <span class="me-2">
-              <i class="fas fa-cogs"></i>
-            </span>
-                        <p>{{ jobDetails.setting }}</p>
-                    </div>
+            <div class="row justify-content-center">
+              <div class="row row-cols-2 border-bottom text-center p-4">
+                <div class="d-flex col">
+                  <span class="me-2">
+                    <i class="fas fa-dollar-sign"></i>
+                  </span>
+                  <p>{{ jobDetails.salary }}</p>
                 </div>
+                <div class="d-flex col">
+                  <span class="me-2">
+                    <i class="fas fa-clock"></i>
+                  </span>
+                  <p>{{ jobDetails.type }}</p>
+                </div>
+                <div class="d-flex col">
+                  <span class="me-2">
+                    <i class="far fa-calendar-alt"></i>
+                  </span>
+                  <p>{{ jobDetails.date }}</p>
+                </div>
+                <div class="d-flex col">
+                  <span class="me-2">
+                    <i class="fas fa-cogs"></i>
+                  </span>
+                  <p>{{ jobDetails.setting }}</p>
+                </div>
+              </div>
             </div>
-
+      
             <div class="row border-bottom p-4">
-                <h5>Responsibilities</h5>
-                <ul>
-                    <li *ngFor="let responsibility of jobDetails.responsibilities">
-                        {{ responsibility }}
-                    </li>
-                </ul>
+              <h5>Responsibilities</h5>
+              <ul>
+                <li *ngFor="let responsibility of jobDetails.responsibilities">
+                  {{ responsibility }}
+                </li>
+              </ul>
             </div>
-
+      
             <div class="row p-4">
-                <h5>Qualifications</h5>
-                <ul>
-                    <li *ngFor="let qualification of jobDetails.qualifications">
-                        {{ qualification }}
-                    </li>
-                </ul>
+              <h5>Qualifications</h5>
+              <ul>
+                <li *ngFor="let qualification of jobDetails.qualifications">
+                  {{ qualification }}
+                </li>
+              </ul>
             </div>
             <div class="flex justify-between items-center">
-                <button class="btn btn-primary m-4" (click)="closePopup()">Close</button>
-                <button class="btn btn-primary m-4" (click)="onApply()">Apply</button>
+              <button class="btn btn-primary m-4" (click)="closePopup()">
+                Close
+              </button>
+              <button class="btn btn-primary m-4" (click)="onApply()">Apply</button>
             </div>
-
-        </div>
+          </div>
+          <div class="col border rounded-4 mx-4 h-fit">
+            <img
+              src="../../assets/amazon-logo.webp"
+              alt="job image"
+              class="img_logo mb-1  mx-2 p-2 "
+              width="75px"
+              height="75px"
+            />
+            <h4 class="mx-4">{{ jobDetails.company }}</h4>
+            <div class="d-flex border-bottom px-4">
+              <span class="me-2">
+                <i class="fas fa-map-marker-alt"></i>
+              </span>
+              <p>{{ jobDetails.location }}</p>
+            </div>
+            <div class="p-3 about_us">
+              <h6 class="mb-3">About Us</h6>
+              <p>{{ jobDetails.aboutCompany }}</p>
+            </div>
+          </div>
     </div>
+    <div *ngIf="jobDetailsUserType === 'company'" class="container text-white">
+        <h3 class="text-center text-[40px]  ">Candidates</h3>
+        <table class="center-table">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Job Title</th>
+                    <th>Date</th>
+                    <th>CV</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>amr&commat;gmail.com</td>
+                    <td>React Front-End Developer</td>
+                    <td>9-May-2024</td>
+                    <td>Data 4</td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary" (click)="closePopup()">
+            Close
+          </button>
+    </div>
+  
+  </div>
 </div>

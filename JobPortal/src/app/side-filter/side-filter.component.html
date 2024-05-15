@@ -98,5 +98,10 @@
                 </li>
             </ul>
         </div>
+        <div *ngIf="sideFilterUserType === 'company'" class="mt-3">
+            <h6 class="mb-3">Adding a New Job?</h6>
+            <button class="btn btn-primary" (click)="toAddJob()">Add Job</button>    
+        </div>
+        
     </aside>
 </div>

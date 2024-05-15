@@ -11,7 +11,7 @@ export interface Job {
     type: string;
     date: string;
     imageUrl: string;
-    responsibilities: string;
-    qualifications: string;
+    responsibilities: string[];
+    qualifications: string[];
 
   }

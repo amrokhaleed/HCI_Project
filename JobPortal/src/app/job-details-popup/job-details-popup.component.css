@@ -64,3 +64,37 @@ h5 {
     font-size: x-large;
     margin-bottom: 1rem;
 }
+.about_us {
+    width: fit-content;
+    height: fit-content;
+}
+
+.about_us p {
+    font-size: smaller;
+}
+img{
+    border-radius: 50%;
+}
+
+/* //////////////////////////////////////// */
+
+.center-table {
+    width: 100%;
+    /*Adjustasneeded*/
+    text-align: center;
+    border-collapse: collapse;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.center-table th,
+.center-table td {
+    padding: 8px;
+    border-bottom: 1px solid wheat;
+    /* Add white border */
+    
+    /* Set background color to white */
+}
