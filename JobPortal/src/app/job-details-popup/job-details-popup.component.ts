@@ -64,6 +64,7 @@ export class JobDetailsPopupComponent {
     this.router.navigate(['/job-apply'], { queryParams: { jobDetails: queryParams } });
   }
   toUserPage(email:string) {
+    localStorage.setItem('roshdy', email);
     this.router.navigate(['/user-profile'],{ queryParams: { profileEmail: email } });
   }
 }

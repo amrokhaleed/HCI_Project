@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, doc, addDoc, deleteDoc, setDoc,query, where,getDocs } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, doc, addDoc, deleteDoc, setDoc,query, where,getDocs ,updateDoc, getDoc} from '@angular/fire/firestore';
 import { from , map, Observable } from 'rxjs';
 import { Job } from '../Interfaces/job';
 
@@ -16,6 +16,21 @@ export class JobsDataService {
 
   getAlljobs(): Observable<Job[]> {
     return collectionData(this.jobssCollection , {idField:'id'}) as Observable<Job[]>;
+  }
+
+  getJobById(jobId: string): Observable<Job> {
+    const jobDocRef = doc(this.firestore, 'Jobs', jobId);
+    return from(getDoc(jobDocRef)).pipe(
+      map(doc => {
+        if (doc.exists()) {
+          const data = doc.data() as Job;
+          data.id = doc.id;
+          return data;
+        } else {
+          throw new Error('Job not found');
+        }
+      })
+    );
   }
 
   getJobsByEmail(email: string): Observable<Job[]> {
@@ -55,10 +70,4 @@ export class JobsDataService {
     return from(updatePromise);
 
   }
-
-
-
-
-
-
 }

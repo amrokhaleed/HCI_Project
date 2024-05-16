@@ -2,6 +2,8 @@ import { Component, Input, Output, EventEmitter, inject } from '@angular/core';
 import { AccountsDataService } from '../services/accounts-data.service';
 import { Router } from '@angular/router';
 import { JobsDataService } from '../services/jobs-data.service';
+import { JobsavedService } from '../services/jobsaved.service';
+import { savedjobs } from '../Interfaces/savedjobs';
 
 @Component({
   selector: 'app-job-card',
@@ -9,10 +11,15 @@ import { JobsDataService } from '../services/jobs-data.service';
   styleUrl: './job-card.component.css',
 })
 export class JobCardComponent {
+
+
   showPopup: boolean = false;
   selectedJobDetails: any;
+  abdalla = inject(JobsavedService);
   accountType = inject(AccountsDataService);
+
   jobCardUserType: string = '';
+  saved:boolean = false;
   @Input() jobs: any;
   @Output() searchQueryChange = new EventEmitter<string>();
   @Output() closePopupEvent = new EventEmitter();
@@ -42,4 +49,30 @@ export class JobCardComponent {
       window.location.reload();
     });
   }
+
+
+  toggleSaving(){
+    // Flip the saved state locally first
+    const save:savedjobs = {
+      idofjob:this.jobs.id,
+      emailofuser:this.accountType.getemail()
+    };
+    this.abdalla.savejob(save);
+    //console.log(this.jobs);
+
+   /* this.jobs.id;
+this.jobs.em;*/
+
+  }
+
+
+  toggledelete() {
+    this.abdalla.unsavejob(this.jobs.id).subscribe(() => {
+      console.log('Job successfully deleted');
+    }, error => {
+      console.error('Error deleting job:', error);
+    });
+
+  }
+
 }

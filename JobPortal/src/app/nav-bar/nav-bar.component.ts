@@ -15,7 +15,7 @@ export class NavBarComponent {
   ngOnInit() {
     this.navUserType = this.accountData.gettype();
     console.log(this.navUserType);
-    
+
   }
   authservices = inject(AuthService)
   constructor(private Logged: IsloggedService,private router:Router){}

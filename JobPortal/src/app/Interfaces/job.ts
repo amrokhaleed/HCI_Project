@@ -13,5 +13,4 @@ export interface Job {
     imageUrl: string;
     responsibilities: string[];
     qualifications: string[];
-
   }

@@ -3,6 +3,8 @@ import { nanoid } from 'nanoid';
 import { Subscription } from 'rxjs';
 import { User_account } from '../../Interfaces/user-account';
 import { AccountsDataService } from '../../services/accounts-data.service';
+import { AuthService } from '../../services/auth.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -20,12 +22,20 @@ export class UserComponent implements OnInit{
   job_title :string='';
   username=''
   isEditingg: boolean = false;
-
+  profEmail:string="";
   user: User_account | undefined;
 
-
+  constructor(private route:ActivatedRoute){
+    this.route.queryParams.subscribe(params => {
+      if (params['profileEmail']) {
+        this.profEmail = params['profileEmail'];
+        console.log("ddaasdddddddddd" + params['profileEmail'])
+      }
+    });
+  }
   ngOnInit(): void {
-    this.userSubscription = this.database.getuserobject()
+    if(this.database.gettype() === "user") {
+      this.userSubscription = this.database.getuserobject(null)
       .subscribe((user: User_account | undefined) => {
         this.user = user;
         if (this.user) { // Check if user is defined
@@ -42,7 +52,29 @@ export class UserComponent implements OnInit{
           this.username = (this.user?.fname ?? '') + (this.user?.lname ?? '') +  shortRandomHash.substring(0, 4);//+shortRandomHash;
         }
       });
+      console.log(this.user);
+    }else if(this.database.gettype() === "company") {
+      const emaill = localStorage.getItem('roshdy');
+      this.userSubscription = this.database.getuserobject(emaill)
+      .subscribe((user: User_account | undefined) => {
+        this.user = user;
+        if (this.user) { // Check if user is defined
+          this.skills = this.user.skills ?? [];
+          this.country = this.user.address ?? '';
+          this.description = this.user.decription_of_job??'';
+          this.hourlyRate =this.user.salary??0;
+          this.job_title=this.user.job_title??'';
+          const shortRandomHash = nanoid();
+          if (this.user && this.user.lname) {
+            this.user.lname = this.user.lname.charAt(0).toUpperCase() + this.user.lname.slice(1);
+          }
 
+          this.username = (this.user?.fname ?? '') + (this.user?.lname ?? '') +  shortRandomHash.substring(0, 4);//+shortRandomHash;
+        }
+        console.log(this.user);
+      });
+      console.log(this.user);
+    }
 
   }
 
@@ -52,10 +84,6 @@ export class UserComponent implements OnInit{
       this.userSubscription.unsubscribe();
     }
   }
-
-
-
-
   // Method to handle file selection
   onFilesSelected(event: any) {
     const files: FileList = event.target.files;

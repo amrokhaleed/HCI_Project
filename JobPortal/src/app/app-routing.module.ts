@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { AddJobComponent } from './add-job/add-job.component';
 import { CandidatesComponent } from './candidates/candidates.component';
 import { JobApplyComponent } from './job-apply/job-apply.component';
+import { SavedJobsComponent } from './saved-jobs/saved-jobs.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
   {path:'add-job',component:AddJobComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path:'login',component:LoginPageComponent},
   {path:'user-registeration',component:UserRegisterationComponent},
   {path:'company-registeration',component:CompanyRegisterationComponent},
-  {path:'job-apply',component:JobApplyComponent}
+  {path:'job-apply',component:JobApplyComponent},
+  {path:'saved-jobs',component:SavedJobsComponent}
 ];
 
 @NgModule({

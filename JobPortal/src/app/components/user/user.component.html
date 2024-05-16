@@ -33,7 +33,7 @@
                         <div class="flex flex-row justify-between">
                             <p id="email" class="mb-4">{{user?.email}}</p>
                             <p id="username" class="mb-4">{{username}}</p>
-                            <button class="btn bg-white text-dark mr-3" (click)="toggleEditProfile()">{{ isEditingProfile ? 'Save Profile' : 'Edit Profile' }}</button>
+                            <button *ngIf="this.database.gettype() === 'user'" class="btn bg-white text-dark mr-3" (click)="toggleEditProfile()">{{ isEditingProfile ? 'Save Profile' : 'Edit Profile' }}</button>
                         </div>
                         <input id="jobTitle" class="mb-4 text-dark" type="text" [disabled]="!isEditingProfile" [(ngModel)]="job_title">
 

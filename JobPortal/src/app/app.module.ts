@@ -27,6 +27,7 @@ import { JobFilterPipe } from './job-filter.pipe';
 import { AddJobComponent } from './add-job/add-job.component';
 import { CandidatesComponent } from './candidates/candidates.component';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { SavedJobsComponent } from './saved-jobs/saved-jobs.component';
 
 
 
@@ -57,7 +58,8 @@ const firebaseConfig = {
     JobApplyComponent,
     JobFilterPipe,
     AddJobComponent,
-    CandidatesComponent
+    CandidatesComponent,
+    SavedJobsComponent
    ],
   imports: [
     provideFirebaseApp(() => initializeApp(firebaseConfig)),

@@ -181,7 +181,7 @@ export class AddJobComponent implements OnInit, AfterViewInit {
       date: this.date,
       imageUrl: '',
       responsibilities: this.responsibility,
-      qualifications: this.qualification
+      qualifications: this.qualification,
     };
 
     this.errormessage = '';

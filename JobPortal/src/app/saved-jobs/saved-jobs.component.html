@@ -1,0 +1,9 @@
+<app-nav-bar></app-nav-bar>
+<div class="mt-[100px]">
+    <h1 class="text-center text-4xl bg-[#e8f0ff] text-blue-800 p-2">Saved Jobs</h1>
+    <div class="container">
+        <div class="flex flex-wrap gap-4 justify-center items-center w-[80%] m-auto mb-5">
+            <app-job-card *ngFor="let job of jobs" [jobs]="job"></app-job-card>
+        </div>
+    </div>
+</div>

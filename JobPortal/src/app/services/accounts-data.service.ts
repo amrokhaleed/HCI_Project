@@ -28,8 +28,9 @@ getemail(): string {
 }
 
 
-getuserobject(): Observable<User_account | undefined> {
-  let email = this.getemail();
+getuserobject(email:string|null): Observable<User_account | undefined> {
+  if(email===null)
+    email = this.getemail();
   const usersQuery = query(this.usersCollection, where('email', '==', email));
   return from(getDocs(usersQuery)).pipe(
     map((querySnapshot) => {
